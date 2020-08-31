@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>iris flower classification</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
+  </head>
+  <body>
+    <div class="showcase_container">
+      <div class="row">
+        <h2>Iris Specie Predictor</h2>
+        <p>ML Web App</p>
+      </div>
+
+    </div>
+    <main>
+      <div class="main-div">
+        <h3>Insert Values Here</h3>
+        <form class="formdiv" action="{{ url_for('predict')}}" method="post" >
+          Sepal Length (cm):<input type="text" name='a' required = "required" placeholder="write value">
+          Sepal Width (cm):<input type="text" name='b' required = "required"  placeholder="write value">
+          Petal Length (cm):<input type="text" name='c' required = "required"  placeholder="write value">
+          Petal Width (cm):<input type="text" name='d' required = "required"  placeholder="write value">
+          <button type="submit" name="button" class="btn">Predict</button>
+        </form>
+      </div>
+      <div class="ans-div">
+
+          <p>{{"This category belongs to SETOSA" if prediction == 0}}</p>
+          <p>{{"This category belongs to VERSICOLOR" if prediction == 1}}</p>
+          <p>{{"This category belongs to VERGINICA" if prediction == 2}}</p>
+          <a href="{{url_for('home')}}">RESET</a>
+      </div>
+    </main>
+  </body>
+</html>
